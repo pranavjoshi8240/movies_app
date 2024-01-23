@@ -1,4 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,9 +54,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         actions: [
           InkWell(
             onTap: () async {
-              await AuthService.signOut(context: context);
-              await sharedPreferences.clear();
-              Get.offAll(()=>SignInScreen());
+               _showAlertDialog(context);
+
             },
               child: Icon(Icons.logout_outlined,color: Colors.white,))
         ],
@@ -108,4 +106,47 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
     );
   }
+  void _showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.black,
+          title: Text(
+            'LogOut!',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Text(
+            'Do you want to Logout?',
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text(
+                'No',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            TextButton(
+              onPressed: () async {
+                await AuthService.signOut(context: context);
+                await sharedPreferences.clear();
+                Get.offAll(()=>SignInScreen());
+              },
+              child: Text(
+                'Yes',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
+
+
+
