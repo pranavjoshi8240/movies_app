@@ -33,7 +33,7 @@ The Movies App is a Flutter application that leverages [The Movie Database (TMDb
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/movies_app.git
+    git clone https://github.com/pranavjoshi8240/movies_app.git
     ```
 
 2. Install dependencies:
