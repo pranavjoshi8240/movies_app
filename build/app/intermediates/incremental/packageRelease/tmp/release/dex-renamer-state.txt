@@ -1,0 +1,4 @@
+#Tue Jan 23 16:12:24 IST 2024
+base.0=/Users/pranavjoshi/Documents/projects/movies_app/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
