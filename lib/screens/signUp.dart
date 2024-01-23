@@ -53,9 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(height:  MediaQuery.of(context).viewPadding.top +20,),
                     InkWell(
                       onTap: (){
-
                         Get.back();
-
                       },
                       child: CircleAvatar(
                         backgroundColor: Color(0xffFFFFFF),
